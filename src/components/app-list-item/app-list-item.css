@@ -1,0 +1,22 @@
+.todo-list-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-container {
+    opacity: 0;
+    transition: .5s;
+}
+
+span {
+    display: block;
+}
+
+.done {
+    text-decoration-line: line-through;
+}
+
+.important .todo-list-item-label{
+    font-weight: bold;
+    color: steelblue;
+}

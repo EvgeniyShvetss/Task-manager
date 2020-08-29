@@ -1,0 +1,57 @@
+.todo-list {
+    background: transparent;
+}
+
+
+.app-list-wrapper {
+    width: 300px;
+    background: #F2F3F4;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.app-list-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-title {
+    font-size: 17px;
+}
+
+.list-button {
+    font-size: 14px;
+    color: rgb(163, 163, 163);
+}
+
+.list-group-item {
+    padding: 7px;
+    box-shadow: 0 0 2px rgba(0,0,0,0.5);
+    margin-bottom: 5px;
+}
+
+.btn-outline-success {
+    border: none;
+    color: rgb(163, 163, 163);
+}
+
+.btn-outline-danger {
+    border: none;
+    color: rgb(163, 163, 163);
+}
+
+.list-group-item:hover .btn-container {
+    opacity: 1;
+    transition: .5s;
+}
+
+.btn-outline-success:hover, 
+.btn-outline-danger:hover,
+.btn-outline-success:focus,
+.btn-outline-danger:target {
+    background: transparent;
+    color: green;
+}

@@ -1,0 +1,8 @@
+.list-button:hover {
+    color: #000;
+    transition: .5s;
+}
+
+.list-button {
+    transition: .5s;
+}

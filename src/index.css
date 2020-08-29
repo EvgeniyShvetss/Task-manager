@@ -1,0 +1,19 @@
+
+.app-container {
+    background: url(../src/img/resize.jpg);
+    height: 100vh;
+    overflow: hidden;
+    padding: 20px;
+    font-family: 'Recursive', sans-serif;
+}
+
+button, button:focus, textarea:focus {
+    border: none;
+    outline: none;
+}
+
+
+.todo-wrapper {
+    display: flex;
+    align-items: flex-start;
+}

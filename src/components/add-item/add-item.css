@@ -1,0 +1,31 @@
+
+
+.add-item {
+    margin-top: 10px;
+}
+
+
+.add-item textarea {
+    width: 100%;
+    resize: none;
+    border: none;
+}
+
+.add-item button {
+    margin-top: 10px;
+    background: rgb(48, 49, 47);
+    color: #fff;
+    border-radius: 5px;
+} 
+
+.add-item-mode {
+    margin-top: 15px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.add-item-mode:hover {
+    border: 1px solid #000;
+    transition: .3s;
+}
