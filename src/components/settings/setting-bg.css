@@ -1,0 +1,20 @@
+.settings-bg__items {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.settings-bg__item {
+    width: 100px;
+    height: 54px;
+    overflow: hidden;
+}
+
+.settings-bg__item img{
+    max-width: 100%;
+    cursor: pointer;
+}
+
+.setting-bg-title {
+    padding: 5px 0 0 5px;
+}

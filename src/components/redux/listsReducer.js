@@ -1,4 +1,4 @@
-import {CREATE_LIST, DELETE_LIST, CREATE_ITEM, DELETE_ITEM, DRAG_ITEM, RENAME_ITEM, DRAG_CARDS} from './types';
+import {CREATE_LIST, DELETE_LIST, CREATE_ITEM, DELETE_ITEM, DRAG_ITEM, RENAME_ITEM} from './types';
 
 const initialState = {
     todoList: [
@@ -28,8 +28,8 @@ const initialState = {
 
         },
     ],
-
 };
+
 
 export const listsReducer = (state = initialState, action) => {
 
@@ -56,9 +56,6 @@ export const listsReducer = (state = initialState, action) => {
             });
             return { ...state, todoList: newTodoListItem };
 
-
-
-
         case DELETE_ITEM:
             const todoListItem = state.todoList.map((el) => {
 
@@ -72,37 +69,30 @@ export const listsReducer = (state = initialState, action) => {
             });
             return { ...state, todoList: todoListItem };
 
-
-
         case RENAME_ITEM:
-            console.log(action.type);
-            return { ...state, todoList: [...state.todoList,] };
-
-
-
-
+            const newStateRename = state.todoList.map((el) => {
+                el.todoData.map((elem) => {
+                    if(elem.id === action.id) {
+                       elem.label = action.label;
+                        return elem;
+                    } else {
+                        return elem;
+                    }
+                });
+                return el
+            });
+            return { ...state, todoList: newStateRename };
 
 
         case DRAG_ITEM:
             const { destination, source, draggableId, type } = action.result;
 
-
-
-
-
             if (!destination) {
                 return;
-            };
-
-        // if (
-        //     destination.draggableId === source.draggableId &&
-        //     destination.index === source.index
-        // ) {
-        //     return;
-        // }
+            }
 
             if(type === 'cards') {
-                // console.log()
+
                 let dragCard;
                 state.todoList.filter((el) => {
                     if(el.id === draggableId) {
@@ -131,7 +121,7 @@ export const listsReducer = (state = initialState, action) => {
                 return { ...el, todoData: newItemList }
             });
 
-            const newTodoCerds = newTodoState.map((el) => {
+            const newTodoCards = newTodoState.map((el) => {
                 if (destination.droppableId === el.id) {
 
                     const newArray = el.todoData.slice();
@@ -145,12 +135,7 @@ export const listsReducer = (state = initialState, action) => {
 
             });
 
-            return { ...state, todoList: newTodoCerds };
-
-        case DRAG_CARDS:
-            console.log(action.result)
-            return { ...state, todoList: newTodoListItem };
-
+            return { ...state, todoList: newTodoCards };
 
 
 

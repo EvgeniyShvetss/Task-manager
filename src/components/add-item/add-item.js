@@ -21,11 +21,21 @@ class AddItem extends Component {
         e.preventDefault();
         this.props.createItem(this.state.label, this.props.todoLists.id);
         this.setState({
-
             label: '',
             isCreateMode: false
         })
     };
+
+    onEnterPress = (e) => {
+        if(e.keyCode === 13 && e.shiftKey === false) {
+            e.preventDefault();
+            this.props.createItem(this.state.label, this.props.todoLists.id);
+            this.setState({
+                label: '',
+                isCreateMode: false
+            })
+        }
+    }
 
     onToggleMode = () => {
         this.setState(({isCreateMode}) => {
@@ -42,11 +52,15 @@ class AddItem extends Component {
             return (
                 <form className="add-item"
                     onSubmit={this.onSubmit}>
-                    <textarea type="text" placeholder="add task"
-                    className="add-item-input"
-                    rows="2"
-                    onChange={this.onLabelChange}  
-                    value={this.state.label}></textarea>
+                    <textarea autoFocus
+                        type="text"
+                        placeholder="add task"
+                        className="add-item-input"
+                        rows="2"
+                        onChange={this.onLabelChange}
+                        value={this.state.label}
+                        onKeyDown={this.onEnterPress}>
+                    </textarea>
 
                     <button type="submit">add item</button>
                 </form>

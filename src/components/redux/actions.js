@@ -1,5 +1,14 @@
-import {CREATE_LIST, DELETE_LIST, CREATE_ITEM, DELETE_ITEM, DRAG_ITEM, RENAME_ITEM, DRAG_CARDS} from "./types";
-const idx = 0;
+import {
+    CREATE_LIST,
+    DELETE_LIST,
+    CREATE_ITEM,
+    DELETE_ITEM,
+    DRAG_ITEM,
+    RENAME_ITEM,
+    DRAG_CARDS,
+    SHOW_MODAL, HIDE_MODAL, ADD_BACKGROUND
+} from "./types";
+
 export function createList(name) {
   return {
     type: CREATE_LIST,
@@ -41,9 +50,11 @@ export function deleteItem (id, parentId) {
     }
 }
 
-export function renameItem() {
+export function renameItem(label, id) {
     return {
-        type: RENAME_ITEM
+        type: RENAME_ITEM,
+        label: label,
+        id:id
     }
 }
 
@@ -61,6 +72,27 @@ export function onDragCard(result) {
        type: DRAG_CARDS,
        result: result
    }
+}
 
 
+
+export function showModal() {
+    return {
+        type: SHOW_MODAL
+    }
+}
+
+export function hideModal() {
+    return {
+        type: HIDE_MODAL
+    }
+}
+
+
+export function addBackground(src) {
+    console.log(src)
+    return {
+        type: ADD_BACKGROUND,
+        src: src
+    }
 }

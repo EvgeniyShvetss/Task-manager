@@ -6,6 +6,21 @@
 .btn-container {
     opacity: 0;
     transition: .5s;
+    margin-left: 10px;
+}
+
+.todo-list-item-label {
+    padding-top: 3px;
+}
+
+.rename-item-input {
+    padding: 2.5px 0;
+}
+
+.rename-item-input {
+    border: none;
+    outline: none;
+
 }
 
 span {

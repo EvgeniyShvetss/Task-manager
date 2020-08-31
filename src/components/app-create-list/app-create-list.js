@@ -36,10 +36,8 @@ const AppCreateList = ({
                       </div>
                   )}
                 </Droppable>
-
               </div>
           )}
-
         </Draggable>
     );
   });

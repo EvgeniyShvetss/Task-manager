@@ -1,10 +1,12 @@
 
 .app-container {
-    background: url(../src/img/resize.jpg);
     height: 100vh;
     overflow: hidden;
     padding: 20px;
     font-family: 'Recursive', sans-serif;
+    overflow-x: auto;
+    background: url(../src/img/resize.jpg) no-repeat;
+    background-size: cover;
 }
 
 button, button:focus, textarea:focus {

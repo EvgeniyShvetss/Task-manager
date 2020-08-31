@@ -3,10 +3,29 @@ import {connect} from 'react-redux';
 import "./app-list-item.css";
 import  {renameItem} from "../redux/actions";
 
+
 class AppListItem extends Component {
 
   state = {
+    label: '',
   isModeRename: false,
+  };
+
+
+  onLabelChange = (e) => {
+    this.setState({
+      label: e.target.value
+    })
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.renameItem(this.state.label, this.props.items.id);
+    this.setState({
+
+      label: '',
+      isModeRename: false,
+    })
   };
 
 
@@ -22,17 +41,21 @@ class AppListItem extends Component {
     const {
       label,
       onDeleted,
-      renameItem
     } = this.props;
     let classNames = "todo-list-item";
-
 
     const { isModeRename } = this.state;
     if (isModeRename) {
       return (
-          <span className={classNames}>
-            <input className="todo-list-item-label" ></input>
-          </span>
+          <form className="rename-item"
+                onSubmit={this.onSubmit}>
+                    <input type="text"
+                           autoFocus
+                              className="rename-item-input"
+                              onChange={this.onLabelChange}
+                              value={this.state.label}>
+                    </input>
+          </form>
       );
     }
 
@@ -46,7 +69,7 @@ class AppListItem extends Component {
           <button
             type="button"
             className="btn btn-outline-success btn-sm"
-            onClick={renameItem}
+            onClick={this.onToggleMode}
           >
             <i className="fa fa-pencil" />
           </button>
@@ -66,7 +89,14 @@ class AppListItem extends Component {
 
 
 const mapDispatchToProps = {
-  renameItem
+  renameItem,
 };
 
-export default connect(null, mapDispatchToProps)(AppListItem)
+
+const mapStateToProps = (state) => {
+  return {
+    mode: state.mode.modeRename,
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppListItem)

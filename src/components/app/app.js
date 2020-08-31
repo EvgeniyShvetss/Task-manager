@@ -5,6 +5,7 @@ import "./app.css";
 import AddList from "../add-list";
 import AppCreateList from "../app-create-list/app-create-list";
 import { onDragEnd } from '../redux/actions'
+import Settings from '../settings/settings'
 
 
 class App extends Component {
@@ -97,30 +98,30 @@ class App extends Component {
       ];
 
       return {
-        todoList: newTodoList,
-      };
-    });
-  };
+  todoList: newTodoList,
+};
+});
+};
 
-  createTodoItemList(name) {
+createTodoItemList(name) {
+  return {
+    name,
+    id: Date.now(),
+    todoData: [],
+  };
+}
+
+addItemList = (name) => {
+  const newItemList = this.createTodoItemList(name);
+
+  this.setState(({ todoList }) => {
+    const newArray = [...todoList, newItemList];
+
     return {
-      name,
-      id: Date.now(),
-      todoData: [],
+      todoList: newArray,
     };
-  }
-
-  addItemList = (name) => {
-    const newItemList = this.createTodoItemList(name);
-
-    this.setState(({ todoList }) => {
-      const newArray = [...todoList, newItemList];
-
-      return {
-        todoList: newArray,
-      };
-    });
-  };
+  });
+};
 
 
   render() {
@@ -135,12 +136,13 @@ class App extends Component {
             <div className="todo-wrapper">
               <AppCreateList/>
               <AddList/>
+              <Settings />
             </div>
             {provided.placeholder}
             </div>
+
           )}
         </Droppable>
-        <AddList/>
       </DragDropContext>
     );
   }

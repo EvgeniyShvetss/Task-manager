@@ -6,3 +6,7 @@
 .list-button {
     transition: .5s;
 }
+
+.app-list-title {
+padding-bottom: 5px;
+}

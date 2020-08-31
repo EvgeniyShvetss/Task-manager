@@ -7,13 +7,13 @@ import {createList} from '../redux/actions';
     state = {
         name: '',
         isCreateMode: false
-    }
+    };
 
     onChangeName = (e) => {
         this.setState({
             name: e.target.value
         })
-    }
+    };
 
     onSubmit = (e) => {
         e.preventDefault()
@@ -28,7 +28,7 @@ import {createList} from '../redux/actions';
             isCreateMode: false
         })
         
-    }
+    };
 
     onToggleMode = () => {
       this.setState(({isCreateMode}) => {
@@ -36,7 +36,7 @@ import {createList} from '../redux/actions';
           isCreateMode: !isCreateMode
         }
       })
-    }
+    };
 
 
   render() {
@@ -45,7 +45,7 @@ import {createList} from '../redux/actions';
     if(isCreateMode) {
       return (
         <form className="add-list" onSubmit={this.onSubmit} >
-          <input
+          <input autoFocus
           onChange={this.onChangeName} 
           value={this.state.name} />
           <button type="submit">Add list</button>
